@@ -32,75 +32,24 @@
   height: 80px;
   width: 80px;
 }
-.linhaUm {
+.linha {
   display: flex;
   justify-content: space-between;
 }
-.linhaDois {
-  display: flex;
-  justify-content: space-between;
-}
-.linhaTres {
-  display: flex;
-  justify-content: space-between;
-}
-.zeroZero {
+
+.celula {
   width: 40px;
   height: 40px;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
 }
-.zeroUm {
-  width: 40px;
-  height: 40px;
-  border-left: 1px solid #000;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
+.celula:nth-child(3n) {
+  border-right: none;
 }
-.zeroDois {
-  width: 40px;
-  height: 40px;
-  border-left: 1px solid #000;
-  border-bottom: 1px solid #000;
+.linha:nth-child(3) .celula {
+  border-bottom: none;
 }
-.umZero {
-  width: 40px;
-  height: 40px;
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-  border-bottom: 1px solid #000;
-}
-.umUm {
-  width: 40px;
-  height: 40px;
-  /* border: 1px solid #000; */
-}
-.umDois {
-  width: 40px;
-  height: 40px;
-  border-top: 1px solid #000;
-  border-left: 1px solid #000;
-  border-bottom: 1px solid #000;
-}
-.doisZero {
-  width: 40px;
-  height: 40px;
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-}
-.doisUm {
-  width: 40px;
-  height: 40px;
-  border-top: 1px solid #000;
-  border-right: 1px solid #000;
-  border-left: 1px solid #000;
-}
-.doisDois {
-  width: 40px;
-  height: 40px;
-  border-left: 1px solid #000;
-  border-top: 1px solid #000;
-}
+
 .ganhou {
   display: none;
   position: fixed;
