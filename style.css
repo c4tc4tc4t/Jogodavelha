@@ -38,15 +38,18 @@
 }
 
 .celula {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 40px;
   height: 40px;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
 }
-.celula:nth-child(3n) {
+.celula:last-child {
   border-right: none;
 }
-.linha:nth-child(3) .celula {
+.linha:last-child .celula {
   border-bottom: none;
 }
 

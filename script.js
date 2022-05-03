@@ -1,81 +1,94 @@
 const a = document.querySelectorAll(".celula");
 
 const Arr = [...a];
-// Arr.forEach((item) => {
-//   console.log(item);
-// });
+const Arr2 = [];
+
+const w1 = [];
+
+const x = Math.sqrt(Arr.length);
+
+let cont = 0;
+for (let i = 0; i < x; i++) {
+  for (let j = 0; j < x; j++) {
+    if (!Array.isArray(Arr2[i])) {
+      Arr2[i] = [];
+    }
+    Arr2[i][j] = Arr[cont];
+    cont++;
+  }
+}
 
 function ganhou(item) {
   const vit = document.querySelector(".ganhou");
   const xo = document.querySelector(".XO");
   vit.style.display = "block";
-  const texto = item.innerText;
-  xo.innerText = texto;
+  xo.innerText = item;
 }
 
-console.log(Arr[0]);
+// console.log(x);
+const diagP = [];
+const diagS = [];
+cont = 0;
+
+for (let m = 0; m < Arr2.length; m++) {
+  for (let n = 0; n < Arr2.length; n++) {
+    if (m == n) {
+      diagP[cont] = Arr2[m][n];
+      cont++;
+    }
+  }
+}
+
+cont = 0;
+let coluna = Arr2.length - 1;
+for (let i = 0; i < Arr2.length; i++) {
+  diagS[cont] = Arr2[i][coluna];
+  cont++;
+  --coluna;
+}
+
 let j = 0;
 function onClick(itemClasse) {
-  if (j % 2 == 0) {
-    itemClasse.target.innerHTML = "X";
-  } else {
-    itemClasse.target.innerHTML = "O";
-  }
   if (
-    (Arr[0].innerText === Arr[1].innerText) &
-    (Arr[2].innerText === Arr[1].innerText) &
-    (Arr[0].innerText != "")
+    (itemClasse.target.innerText != "X") &
+    (itemClasse.target.innerText != "O")
   ) {
-    ganhou(Arr[0]);
-  } else if (
-    (Arr[3].innerText === Arr[4].innerText) &
-    (Arr[5].innerText === Arr[4].innerText) &
-    (Arr[3].innerText != "")
-  ) {
-    ganhou(Arr[3]);
-  } else if (
-    (Arr[6].innerText === Arr[7].innerText) &
-    (Arr[8].innerText === Arr[7].innerText) &
-    (Arr[6].innerText != "")
-  ) {
-    ganhou(Arr[6]);
-  } else if (
-    (Arr[0].innerText === Arr[4].innerText) &
-    (Arr[8].innerText === Arr[0].innerText) &
-    (Arr[0].innerText != "")
-  ) {
-    ganhou(Arr[0]);
-  } else if (
-    (Arr[2].innerText === Arr[6].innerText) &
-    (Arr[4].innerText === Arr[6].innerText) &
-    (Arr[2].innerText != "")
-  ) {
-    ganhou(Arr[2]);
-  } else if (
-    (Arr[0].innerText === Arr[3].innerText) &
-    (Arr[0].innerText === Arr[6].innerText) &
-    (Arr[0].innerText != "")
-  ) {
-    ganhou(Arr[0]);
-  } else if (
-    (Arr[1].innerText === Arr[4].innerText) &
-    (Arr[1].innerText === Arr[7].innerText) &
-    (Arr[1].innerText != "")
-  ) {
-    ganhou(Arr[1]);
-  } else if (
-    (Arr[2].innerText === Arr[5].innerText) &
-    (Arr[2].innerText === Arr[8].innerText) &
-    (Arr[5].innerText != "")
-  ) {
-    ganhou(Arr[2]);
+    if (j % 2 == 0) {
+      itemClasse.target.innerText = "X";
+    } else {
+      itemClasse.target.innerText = "O";
+    }
   }
+  for (let i = 0; i < Arr2.length; i++) {
+    let t = [];
+    let o = [];
+    for (let j = 0; j < Arr2.length; j++) {
+      t[j] = Arr2[i][j].innerText;
+      o[j] = Arr2[j][i].innerText;
+
+      if (j === Arr2.length - 1) {
+        if (t.every((x) => x === "X")) {
+          ganhou("X");
+        } else if (t.every((x) => x === "O")) {
+          ganhou("O");
+        } else if (o.every((x) => x === "X")) {
+          ganhou("X");
+        } else if (t.every((x) => x === "O")) {
+          ganhou("O");
+        }
+      }
+    }
+  }
+
   ++j;
 }
 
-Arr.forEach((item) => {
-  item.addEventListener("click", onClick);
-});
+const pai = document.querySelector(".miniCont");
+// console.log(pai);
+pai.addEventListener("click", onClick);
+// Arr.forEach((item) => {
+//   item.addEventListener("click", onClick);
+// });
 
 function reset() {
   Arr.forEach((item) => {
