@@ -29,6 +29,10 @@ function ganhou(item) {
 
 let j = 0;
 function onClick(itemClasse) {
+  if (!itemClasse.target.classList.contains("celula")) {
+    return;
+  }
+
   if (
     (itemClasse.target.innerText != "X") &
     (itemClasse.target.innerText != "O")
@@ -38,8 +42,9 @@ function onClick(itemClasse) {
     } else {
       itemClasse.target.innerText = "O";
     }
+    ++j;
   }
-  ++j;
+
   for (let i = 0; i < Arr2.length; i++) {
     let t = [];
     let o = [];
@@ -54,7 +59,7 @@ function onClick(itemClasse) {
           ganhou("O");
         } else if (o.every((x) => x === "X")) {
           ganhou("X");
-        } else if (t.every((x) => x === "O")) {
+        } else if (o.every((x) => x === "O")) {
           ganhou("O");
         }
       }
