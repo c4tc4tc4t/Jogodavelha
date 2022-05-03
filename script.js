@@ -26,26 +26,6 @@ function ganhou(item) {
 }
 
 // console.log(x);
-const diagP = [];
-const diagS = [];
-cont = 0;
-
-for (let m = 0; m < Arr2.length; m++) {
-  for (let n = 0; n < Arr2.length; n++) {
-    if (m == n) {
-      diagP[cont] = Arr2[m][n];
-      cont++;
-    }
-  }
-}
-
-cont = 0;
-let coluna = Arr2.length - 1;
-for (let i = 0; i < Arr2.length; i++) {
-  diagS[cont] = Arr2[i][coluna];
-  cont++;
-  --coluna;
-}
 
 let j = 0;
 function onClick(itemClasse) {
@@ -59,6 +39,7 @@ function onClick(itemClasse) {
       itemClasse.target.innerText = "O";
     }
   }
+  ++j;
   for (let i = 0; i < Arr2.length; i++) {
     let t = [];
     let o = [];
@@ -79,8 +60,35 @@ function onClick(itemClasse) {
       }
     }
   }
+  const diagP = [];
+  const diagS = [];
+  cont = 0;
 
-  ++j;
+  for (let m = 0; m < Arr2.length; m++) {
+    for (let n = 0; n < Arr2.length; n++) {
+      if (m == n) {
+        diagP[cont] = Arr2[m][n].innerText;
+        cont++;
+      }
+    }
+  }
+
+  cont = 0;
+  let coluna = Arr2.length - 1;
+  for (let i = 0; i < Arr2.length; i++) {
+    diagS[cont] = Arr2[i][coluna].innerText;
+    cont++;
+    --coluna;
+  }
+  if (diagP.every((x) => x === "X")) {
+    ganhou("X");
+  } else if (diagP.every((x) => x === "O")) {
+    ganhou("O");
+  } else if (diagS.every((x) => x === "X")) {
+    ganhou("X");
+  } else if (diagS.every((x) => x === "O")) {
+    ganhou("O");
+  }
 }
 
 const pai = document.querySelector(".miniCont");
