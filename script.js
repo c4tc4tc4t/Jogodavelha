@@ -1,5 +1,15 @@
-const a = document.querySelectorAll(".celula");
+const miniCont = document.querySelector(".miniCont");
 
+miniCont.innerHTML =
+  '<div class="linha"></div> <div class="linha"></div> <div class="linha"></div>';
+const linha = document.querySelectorAll(".linha");
+
+linha.forEach((item) => {
+  item.innerHTML =
+    '<div class="celula"></div><div class="celula"></div><div class="celula"></div>';
+});
+
+const a = document.querySelectorAll(".celula");
 const Arr = [...a];
 const Arr2 = [];
 
