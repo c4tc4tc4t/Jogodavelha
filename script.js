@@ -1,13 +1,39 @@
 const miniCont = document.querySelector(".miniCont");
 
-miniCont.innerHTML =
-  '<div class="linha"></div> <div class="linha"></div> <div class="linha"></div>';
-const linha = document.querySelectorAll(".linha");
+// miniCont.innerHTML =
+//   '<div class="linha"></div> <div class="linha"></div> <div class="linha"></div>';
+// const linha = document.querySelectorAll(".linha");
 
-linha.forEach((item) => {
-  item.innerHTML =
-    '<div class="celula"></div><div class="celula"></div><div class="celula"></div>';
+// linha.forEach((item) => {
+//   item.innerHTML =
+//     '<div class="celula"></div><div class="celula"></div><div class="celula"></div>';
+// });
+
+const newDiv = [];
+for (i = 0; i < 3; i++) {
+  newDiv[i] = document.createElement("div");
+}
+newDiv.forEach((item) => {
+  item.classList.add("linha");
+  miniCont.appendChild(item);
 });
+
+const linha = document.querySelectorAll(".linha");
+const newDiv2 = [];
+for (i = 0; i < 3; i++) {
+  newDiv2[i] = document.createElement("div");
+}
+newDiv2.forEach((item) => {
+  item.classList.add("celula");
+  linha.forEach((i) => {
+    i.appendChild(item.cloneNode(true));
+  });
+});
+
+// linha.forEach((item) => {
+//   item.classList.add("celula");
+//   console.log(item);
+// });
 
 const a = document.querySelectorAll(".celula");
 const Arr = [...a];
