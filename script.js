@@ -54,15 +54,52 @@ for (let i = 0; i < x; i++) {
   }
 }
 
-function ganhou(item) {
-  const vit = document.querySelector(".ganhou");
-  const xo = document.querySelector(".XO");
-  vit.style.display = "block";
-  xo.innerText = item;
+function ganhouH(item) {
+  let risco = document.createElement("div");
+  risco.classList.add("riscoH");
+  item.appendChild(risco);
+  item.style.position = "relative";
+  function addAtivo() {
+    risco.classList.add("ativoH");
+  }
+  setTimeout(addAtivo, 10);
+  pai.removeEventListener("click", onClick);
 }
-
+function ganhouV(item) {
+  let risco = document.createElement("div");
+  item.appendChild(risco);
+  item.style.position = "relative";
+  function addAtivo() {
+    risco.classList.add("ativoV");
+  }
+  setTimeout(addAtivo, 10);
+  risco.classList.add("riscoV");
+  pai.removeEventListener("click", onClick);
+}
+function ganhouDP(item) {
+  let risco = document.createElement("div");
+  item.appendChild(risco);
+  item.style.position = "relative";
+  function addAtivo() {
+    risco.classList.add("ativoDP");
+  }
+  setTimeout(addAtivo, 10);
+  risco.classList.add("riscoDP");
+  pai.removeEventListener("click", onClick);
+}
+function ganhouDS(item) {
+  let risco = document.createElement("div");
+  item.appendChild(risco);
+  item.style.position = "relative";
+  function addAtivo() {
+    risco.classList.add("ativoDS");
+  }
+  setTimeout(addAtivo, 10);
+  risco.classList.add("riscoDS");
+  pai.removeEventListener("click", onClick);
+}
 // console.log(x);
-
+// console.log(Arr2[0][0].parentNode);
 let j = 0;
 function onClick(itemClasse) {
   if (!itemClasse.target.classList.contains("celula")) {
@@ -90,13 +127,13 @@ function onClick(itemClasse) {
 
       if (j === Arr2.length - 1) {
         if (t.every((x) => x === "X")) {
-          ganhou("X");
+          ganhouH(Arr2[i][0]);
         } else if (t.every((x) => x === "O")) {
-          ganhou("O");
+          ganhouH(Arr2[i][0]);
         } else if (o.every((x) => x === "X")) {
-          ganhou("X");
+          ganhouV(Arr2[0][i]);
         } else if (o.every((x) => x === "O")) {
-          ganhou("O");
+          ganhouV(Arr2[0][i]);
         }
       }
     }
@@ -122,30 +159,35 @@ function onClick(itemClasse) {
     --coluna;
   }
   if (diagP.every((x) => x === "X")) {
-    ganhou("X");
+    ganhouDP(Arr2[0][0]);
   } else if (diagP.every((x) => x === "O")) {
-    ganhou("O");
+    ganhouDP(Arr2[0][0]);
   } else if (diagS.every((x) => x === "X")) {
-    ganhou("X");
+    ganhouDS(Arr2[0][2]);
   } else if (diagS.every((x) => x === "O")) {
-    ganhou("O");
+    ganhouDS(Arr2[0][2]);
   }
 }
 
 const pai = document.querySelector(".miniCont");
-// console.log(pai);
 pai.addEventListener("click", onClick);
-// Arr.forEach((item) => {
-//   item.addEventListener("click", onClick);
-// });
 
 function reset() {
   Arr.forEach((item) => {
     item.innerText = "";
   });
-  const vit = document.querySelector(".ganhou");
-  vit.style.display = "none";
+  const linha = document.querySelectorAll(".riscoH");
+  const coluna = document.querySelectorAll(".riscoV");
+  linha.forEach((item) => {
+    item.classList.remove("riscoH");
+    item.classList.remove("ativo");
+  });
+  coluna.forEach((item) => {
+    item.classList.remove("riscoV");
+    item.classList.remove("ativo");
+  });
   j = 0;
+  pai.addEventListener("click", onClick);
 }
 const botao = document.querySelectorAll(".botaoJgrDnv");
 botao.forEach((item) => {

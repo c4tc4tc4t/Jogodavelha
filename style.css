@@ -53,13 +53,6 @@
   border-bottom: none;
 }
 
-.ganhou {
-  display: none;
-  position: fixed;
-  background-color: pink;
-  width: 400px;
-  height: 200px;
-}
 .botaoContainer {
   margin-left: 100px;
 }
@@ -71,4 +64,59 @@
 .XO {
   font-size: large;
   color: blue;
+}
+.riscoH {
+  position: absolute;
+  content: "";
+  width: 0px;
+  height: 2px;
+  background-color: red;
+  top: 18px;
+  left: 2px;
+  transition: 1s;
+}
+.ativoH {
+  width: 75px;
+}
+
+.riscoV {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 0px;
+  background-color: blue;
+  top: 4px;
+  left: 12px;
+  transition: 1s;
+}
+.ativoV {
+  height: 112px;
+}
+.riscoDP {
+  position: absolute;
+  content: "";
+  width: 0px;
+  height: 2px;
+  background-color: green;
+  top: 0;
+  left: 0;
+  transform: translateX(-25px) translateY(60px) rotate(56deg);
+  transition: 1s;
+}
+.ativoDP {
+  width: 130px;
+}
+.riscoDS {
+  position: absolute;
+  content: "";
+  width: 0px;
+  height: 2px;
+  background-color: green;
+  top: 0;
+  left: 0;
+  transform: translateX(-80px) translateY(58px) rotate(124deg);
+  transition: 1s;
+}
+.ativoDS {
+  width: 130px;
 }
