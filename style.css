@@ -68,7 +68,7 @@
 .riscoH {
   position: absolute;
   content: "";
-  width: 0px;
+  width: 5px;
   height: 2px;
   background-color: red;
   top: 18px;
@@ -100,11 +100,13 @@
   background-color: green;
   top: 0;
   left: 0;
-  transform: translateX(-25px) translateY(60px) rotate(56deg);
   transition: 1s;
+  transform: rotate(56deg);
+  /* transform: translateX(-25px) translateY(60px) rotate(56deg); */
 }
 .ativoDP {
   width: 130px;
+  transform: translateX(-25px) translateY(60px) rotate(56deg);
 }
 .riscoDS {
   position: absolute;
@@ -113,10 +115,11 @@
   height: 2px;
   background-color: green;
   top: 0;
-  left: 0;
-  transform: translateX(-80px) translateY(58px) rotate(124deg);
+  right: 0;
   transition: 1s;
+  transform: rotate(124deg);
 }
 .ativoDS {
   width: 130px;
+  transform: translateX(25px) translateY(58px) rotate(124deg);
 }
