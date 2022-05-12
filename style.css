@@ -101,12 +101,11 @@
   top: 0;
   left: 0;
   transition: 1s;
+  transform-origin: top left;
   transform: rotate(56deg);
-  /* transform: translateX(-25px) translateY(60px) rotate(56deg); */
 }
 .ativoDP {
   width: 130px;
-  transform: translateX(-25px) translateY(60px) rotate(56deg);
 }
 .riscoDS {
   position: absolute;
@@ -114,12 +113,12 @@
   width: 0px;
   height: 2px;
   background-color: green;
-  top: 0;
+  bottom: 0;
   right: 0;
   transition: 1s;
-  transform: rotate(124deg);
+  transform-origin: bottom right;
+  transform: translateX(-75px) translateY(70px) rotate(124deg);
 }
 .ativoDS {
   width: 130px;
-  transform: translateX(25px) translateY(58px) rotate(124deg);
 }
