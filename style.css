@@ -28,16 +28,16 @@
   width: 40px;
   height: 40px;
   box-sizing: border-box;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
-  /* border: 1px solid #000; */
+  /* border-bottom: 1px solid #000;
+  border-right: 1px solid #000; */
+  border: 1px solid #000;
 }
-.celula:last-child {
+/* .celula:last-child {
   border-right: none;
 }
 .linha:last-child .celula {
   border-bottom: none;
-}
+} */
 
 .botaoContainer {
   margin-left: 100px;
@@ -83,6 +83,6 @@
   height: 2px;
   bottom: 0;
   right: 0;
-  transform-origin: top right;
-  transform: translateY(-30px) translateX(-10px) rotate(315deg);
+  transform-origin: center right;
+  transform: translateY(-38px) translateX(0px) rotate(315deg);
 }

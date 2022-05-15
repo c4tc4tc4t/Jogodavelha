@@ -1,4 +1,4 @@
-const tamanhoTabuleiro = 3;
+const tamanhoTabuleiro = 10;
 function criacaoTabuleiro() {
   const miniCont = document.querySelector(".miniCont");
 
