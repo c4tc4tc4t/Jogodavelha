@@ -9,28 +9,12 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  /* background-color: blue; */
 }
 
-/* .primLinhaH {
-  transform: translateX(-45px) translateY(25px) scaleX(11);
-}
-.segLinhaH {
-  transform: translateX(-45px) translateY(-7px) scaleX(11);
-}
-.primLinhaV {
-  transform: translateX(-20px) translateY(-1px) scaleY(5) scaleX(3);
-}
-.segLinhaV {
-  transform: translateX(-55px) translateY(-65px) scaleY(5) scaleX(3);
-} */
 .miniCont {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* background-color: red; */
-  height: 80px;
-  width: 80px;
 }
 .linha {
   display: flex;
@@ -43,8 +27,10 @@
   align-items: center;
   width: 40px;
   height: 40px;
+  box-sizing: border-box;
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
+  /* border: 1px solid #000; */
 }
 .celula:last-child {
   border-right: none;
@@ -65,60 +51,38 @@
   font-size: large;
   color: blue;
 }
-.riscoH {
+.risco {
   position: absolute;
-  content: "";
-  width: 5px;
-  height: 2px;
+  transition: 1s;
   background-color: red;
+}
+.riscoH {
+  width: 0px;
+  height: 2px;
   top: 18px;
   left: 2px;
-  transition: 1s;
 }
-.ativoH {
-  width: 75px;
-}
-
 .riscoV {
-  position: absolute;
-  content: "";
-  width: 2px;
-  height: 0px;
-  background-color: blue;
+  width: 0px;
+  height: 2px;
   top: 4px;
   left: 12px;
-  transition: 1s;
-}
-.ativoV {
-  height: 112px;
+  transform-origin: top left;
+  transform: translateX(10px) rotate(90deg);
 }
 .riscoDP {
-  position: absolute;
-  content: "";
   width: 0px;
   height: 2px;
-  background-color: green;
   top: 0;
   left: 0;
-  transition: 1s;
-  transform-origin: top left;
-  transform: rotate(56deg);
-}
-.ativoDP {
-  width: 130px;
+  transform-origin: left;
+  transform: rotate(45deg);
 }
 .riscoDS {
-  position: absolute;
-  content: "";
   width: 0px;
   height: 2px;
-  background-color: green;
   bottom: 0;
   right: 0;
-  transition: 1s;
-  transform-origin: bottom right;
-  transform: translateX(-75px) translateY(70px) rotate(124deg);
-}
-.ativoDS {
-  width: 130px;
+  transform-origin: top right;
+  transform: translateY(-30px) translateX(-10px) rotate(315deg);
 }
